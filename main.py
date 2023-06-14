@@ -1,10 +1,13 @@
 import uvicorn
 from enum import Enum
+import datetime
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, Query
 from fastapi import FastAPI, HTTPException, Depends, status, Request, Depends
 import tensorflow as tf
 import numpy as np
+from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 import os
 from google.oauth2 import service_account
@@ -17,8 +20,6 @@ import mysql.connector
 from fastapi.openapi.utils import get_openapi
 import secrets
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-
-
 
 
 # Load environment variables from .env file
@@ -58,7 +59,7 @@ class AirItem(BaseModel):
 
 
 # Load ML models
-water_model = tf.keras.models.load_model('./model/water.h5')
+water_model = tf.keras.models.load_model('./model/Water.h5')
 soil_model = tf.keras.models.load_model('./model/Soil.h5')
 air_model = tf.keras.models.load_model('./model/Air.h5')
 
@@ -74,18 +75,216 @@ mysql_connection = mysql.connector.connect(
     password=mysql_password,
     database=mysql_database
 )
+# Mengatur CORS (Cross-Origin Resource Sharing) untuk mengizinkan permintaan dari semua sumber (origin)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+# Memuat konfigurasi dari file .env
+load_dotenv()
 
+# Konfigurasi Google Cloud Storage
+bucket_name = os.getenv("BUCKET_NAME")
+service_account_file = os.getenv("SERVICE_ACCOUNT_FILE")
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.abspath(service_account_file)
+
+storage_client = storage.Client()
+
+# Konfigurasi MySQL
+mysql_host = os.getenv("MYSQL_HOST")
+mysql_user = os.getenv("MYSQL_USER")
+mysql_password = os.getenv("MYSQL_PASSWORD")
+mysql_database = os.getenv("MYSQL_DATABASE")
+
+# Model untuk data artikel
+class Article(BaseModel):
+    title: str
+    content: str
+
+# Fungsi untuk mengunggah file ke Google Cloud Storage
+def upload_to_gcs(file: UploadFile):
+    # Generate nama file unik dengan timestamp
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    file_name = f"{timestamp}-{file.filename}"
+
+    # Upload file ke Google Cloud Storage
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+    blob.upload_from_file(file.file, content_type=file.content_type)
+
+    # Dapatkan URL publik gambar
+    url = blob.public_url
+
+    return url
+
+# Fungsi untuk menyimpan data artikel ke database
+def save_article_to_database(title: str, content: str, image_url: str):
+    connection = mysql.connector.connect(
+        host=mysql_host,
+        user=mysql_user,
+        password=mysql_password,
+        database=mysql_database
+    )
+    cursor = connection.cursor()
+
+    # Query untuk menyimpan data artikel ke tabel "articles"
+    query = "INSERT INTO artikel (title, content, image_url) VALUES (%s, %s, %s)"
+    values = (title, content, image_url)
+
+    cursor.execute(query, values)
+    connection.commit()
+
+    cursor.close()
+    connection.close()
 
 # Check API key from MySQL
 def check_api_key(api_key):
     cursor = mysql_connection.cursor()
-    query = "SELECT COUNT(*) FROM user WHERE api_key = %s"
+    query = "SELECT COUNT(*), level FROM user WHERE api_key = %s GROUP BY level LIMIT 1;"
     cursor.execute(query, (api_key,))
-    count = cursor.fetchone()[0]
+    result = cursor.fetchone()
     cursor.close()
-    return count > 0
+    if result:
+        count, level = result
+        return count > 0, level
+    else:
+        return False, None
+
+#artikel
+@app.post("/upload-article")
+async def upload_article_with_curl(api_key: str, title: str, content: str, file: UploadFile = File(...)):
+    success, level = check_api_key(api_key)
+    if not success or level != "admin":
+        raise HTTPException(status_code=403, detail="Insufficient privileges")
+
+    try:
+        # Membuat instance Article dari data yang diterima
+        article = Article(title=title, content=content)
+
+        # Mengunggah gambar ke Google Cloud Storage
+        image_url = upload_to_gcs(file)
+
+        # Menyimpan data artikel ke database
+        save_article_to_database(article.title, article.content, image_url)
+
+        return {"message": "Artikel berhasil diunggah"}
+    except Exception as e:
+        return {"message": str(e)}
+
+# fungsi untuk menghapus gambar dari bucket
+def delete_from_gcs(image_url: str):
+    # Dapatkan nama file dari URL gambar
+    file_name = image_url.split("/")[-1]
+
+    # Hapus file dari Google Cloud Storage
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+    blob.delete()
+
+# fungsi untuk menghapus artikel dari database dan menghapus gambar
+def delete_article_from_database(article_id: int):
+    connection = mysql.connector.connect(
+        host=mysql_host,
+        user=mysql_user,
+        password=mysql_password,
+        database=mysql_database
+    )
+    cursor = connection.cursor()
+
+    # Dapatkan URL image artikel yang akan dihapus
+    query = "SELECT image_url FROM artikel WHERE id = %s"
+    cursor.execute(query, (article_id,))
+    result = cursor.fetchone()
+    if result:
+        image_url = result[0]
+        # Hapus artikel dari database
+        query = "DELETE FROM artikel WHERE id = %s"
+        cursor.execute(query, (article_id,))
+        connection.commit()
+        cursor.close()
+        connection.close()
+        # Hapus gambar dari bucket
+        delete_from_gcs(image_url)
+    else:
+        cursor.close()
+        connection.close()
+        raise HTTPException(status_code=404, detail="Article not found")
+
+# hapus artikel
+@app.delete("/artikels/{artikel_id}")
+def delete_artikel(artikel_id: int, api_key: str):
+    # Periksa API key
+    if not check_api_key(api_key):
+        raise HTTPException(status_code=401, detail="Invalid API key")
+
+    try:
+        # Hapus artikel dari database dan gambar dari bucket
+        delete_article_from_database(artikel_id)
+        return {"message": "Artikel berhasil dihapus"}
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# update artikel
+@app.put("/artikels/{artikel_id}")
+def update_artikel(artikel_id: int, api_key: str, title: str, content: str, file: UploadFile = File(None)):
+    # Periksa kunci API
+    if not check_api_key(api_key):
+        raise HTTPException(status_code=401, detail="Invalid API key")
+    
+    try:
+        connection = mysql.connector.connect(
+            host=mysql_host,
+            user=mysql_user,
+            password=mysql_password,
+            database=mysql_database
+        )
+        cursor = connection.cursor()
+
+        # Dapatkan artikel yang akan diperbarui dari database
+        query = "SELECT * FROM artikel WHERE id = %s"
+        cursor.execute(query, (artikel_id,))
+        artikel = cursor.fetchone()
+
+        if artikel is None:
+            raise HTTPException(status_code=404, detail="Artikel not found")
+
+        # Perbarui judul dan konten artikel
+        query = "UPDATE artikel SET title = %s, content = %s"
+        values = (title, content)
+
+        # Perbarui gambar artikel jika ada
+        if file is not None:
+            # Menghapus gambar sebelumnya dari bucket
+            if artikel[3]:
+                delete_from_gcs(artikel[3])
+
+            # Mengunggah gambar baru ke Google Cloud Storage
+            image_url = upload_to_gcs(file)
+
+            # Perbarui URL gambar di database
+            query += ", image_url = %s"
+            values += (image_url,)
+        
+        query += " WHERE id = %s"
+        values += (artikel_id,)
+        
+        cursor.execute(query, values)
+        connection.commit()
+
+        # Tutup kursor dan koneksi
+        cursor.close()
+        connection.close()
+
+        return {"message": "Artikel updated successfully"}
+    except mysql.connector.Error as error:
+        print("Error while connecting to MySQL", error)
+        raise HTTPException(status_code=500, detail="Failed to update artikel")
 
 # Fungsi untuk mengambil data dari MySQL dengan memeriksa API key
 def get_data_from_mysql(api_key):
@@ -118,6 +317,14 @@ def get_data_from_mysql(api_key):
         print("Error while connecting to MySQL", error)
         return None
 
+# mendapatkan data artikel
+@app.get("/artikels")
+def get_data(api_key: str):
+    data = get_data_from_mysql(api_key)
+    if data is not None:
+        return {"data": data}
+    else:
+        return {"message": "Failed to retrieve data from MySQL"}
 
 # Predict water quality
 def predict_water_quality(fc, oxy, ph, tss, temp, tpn, tp, turb):
@@ -126,15 +333,15 @@ def predict_water_quality(fc, oxy, ph, tss, temp, tpn, tp, turb):
     result = water_model.predict(data)
     predicted_class = np.argmax(result)
 
+    #if predicted_class == 0:
+        #res_message = "Very Bad"
     if predicted_class == 0:
-        res_message = "Very Bad"
-    elif predicted_class == 1:
         res_message = "Bad"
-    elif predicted_class == 2:
+    elif predicted_class == 1:
         res_message = "Medium"
-    elif predicted_class == 3:
+    elif predicted_class == 2:
         res_message = "Good"
-    elif predicted_class == 4:
+    elif predicted_class == 3:
         res_message = "Excellent"
 
     return res_message
@@ -151,8 +358,8 @@ def predict_soil_quality(nitrogen, phosphorus, potassium, ph):
         res_message = "Tidak Sehat"
     elif predicted_class == 1:
         res_message = "Kurang Sehat"
-    elif predicted_class == 2:
-        res_message = "Sehat"
+    #elif predicted_class == 2:
+        #res_message = "Sehat"
 
     return res_message
 
@@ -164,25 +371,23 @@ def predict_air_quality(co, ozon, no2, pm25):
     result = air_model.predict(data)
     predicted_class = np.argmax(result)
 
-    if predicted_class == 0:
+    if predicted_class == 5:
         res_message = "Good"
-    elif predicted_class == 1:
-        res_message = "Moderate"
-    elif predicted_class == 2:
-        res_message = "Unhealthy for Sensitive Groups"
-    elif predicted_class == 3:
-        res_message = "Unhealthy"
     elif predicted_class == 4:
+        res_message = "Moderate"
+    elif predicted_class == 3:
+        res_message = "Unhealthy for Sensitive Groups"
+    elif predicted_class == 2:
+        res_message = "Unhealthy"
+    elif predicted_class == 1:
         res_message = "Very Unhealthy"
-    elif predicted_class == 5:
+    elif predicted_class == 0:
         res_message = "Hazardous"
 
     return res_message
 
 
 app.mount("/assets", StaticFiles(directory="view/assets"), name="assets")
-
-
 
 
 # Model untuk payload registrasi pengguna
@@ -266,14 +471,6 @@ def welcome():
     with open("view/index.php", "r") as file:
         return file.read()
 
-@app.get("/artikels")
-def get_data(api_key: str):
-    data = get_data_from_mysql(api_key)
-    if data is not None:
-        return {"data": data}
-    else:
-        return {"message": "Failed to retrieve data from MySQL"}
-
 @app.post("/water")
 def predict_water(api_key: str, item: WaterItem):
     # Check API key
@@ -283,7 +480,6 @@ def predict_water(api_key: str, item: WaterItem):
     result = predict_water_quality(item.fc, item.oxy, item.ph, item.tss, item.temp, item.tpn, item.tp, item.turb)
     return {"result": result}
 
-
 @app.post("/soil")
 def predict_soil(api_key: str, item: SoilItem):
     # Check API key
@@ -292,7 +488,6 @@ def predict_soil(api_key: str, item: SoilItem):
 
     result = predict_soil_quality(item.nitrogen, item.phosphorus, item.potassium, item.ph)
     return {"result": result}
-
 
 @app.post("/air")
 def predict_air(api_key: str, item: AirItem):
@@ -310,7 +505,7 @@ def custom_openapi():
     openapi_schema = get_openapi(
         title="ENVy Endpoint",
         version="1.0.0",
-        description="hmmm",
+        description="Capstone Project Bangkit 2023 - ENVy",
         routes=app.routes,
     )
     # Remove unwanted paths from the OpenAPI schema
