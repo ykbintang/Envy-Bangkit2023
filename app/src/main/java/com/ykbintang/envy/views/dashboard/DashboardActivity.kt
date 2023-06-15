@@ -10,7 +10,7 @@ import com.ykbintang.envy.R
 import com.ykbintang.envy.Utils.setAppLocale
 import com.ykbintang.envy.databinding.ActivityDashboardBinding
 import com.ykbintang.envy.views.home.HomeFragment
-import com.ykbintang.envy.views.library.LibraryFragment
+import com.ykbintang.envy.views.article.ArticleFragment
 import com.ykbintang.envy.views.setting.SettingFragment
 
 class DashboardActivity : AppCompatActivity() {
@@ -43,7 +43,7 @@ class DashboardActivity : AppCompatActivity() {
                     0
                 }
                 R.id.menu_library -> {
-                    moveFragment(LibraryFragment())
+                    moveFragment(ArticleFragment())
                     1
                 }
                 else -> {

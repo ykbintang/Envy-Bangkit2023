@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbarSize="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,51 +35,48 @@
             android:id="@+id/et_fc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
-            android:text="@string/oxygen_o2" />
+            android:text="@string/oksigen_o2" />
 
         <EditText
             android:id="@+id/et_o2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
-            android:text="pH Air (pH)" />
+            android:text="@string/ph_water_ph" />
 
         <EditText
             android:id="@+id/et_ph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,32 +89,30 @@
             android:id="@+id/et_tss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
-            android:text="@string/temperature_temp" />
+            android:text="@string/temperatur_temp" />
 
         <EditText
             android:id="@+id/et_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -128,32 +125,30 @@
             android:id="@+id/et_nitrogen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
-            android:text="@string/phosphorus_p" />
+            android:text="@string/fosforus_p" />
 
         <EditText
             android:id="@+id/et_phosporus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,16 +158,15 @@
             android:text="@string/turbidity_turb" />
 
         <EditText
-            android:id="@+id/et_turbidiy"
+            android:id="@+id/et_turbidity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/_1_100"
             android:inputType="number"
             android:maxLength="3"
             android:textColorHint="@color/etHint"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/et_bg"
-            android:padding="16dp" />
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/btn_detect"
@@ -181,6 +175,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginHorizontal="32dp"
             android:text="@string/deteksi"
+            android:textSize="18sp"
             android:textAllCaps="false"
             android:textColor="@color/lightGray"
             android:background="@drawable/btn_bg"/>

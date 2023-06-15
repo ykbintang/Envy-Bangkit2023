@@ -5,7 +5,7 @@
         android:icon="@drawable/baseline_home_24"/>
 
     <item android:id="@+id/menu_library"
-        android:title="@string/library"
+        android:title="@string/article"
         android:icon="@drawable/outline_library_books_24"/>
 
     <item android:id="@+id/menu_setting"

@@ -49,7 +49,7 @@ class WaterActivity : AppCompatActivity() {
         val temp = binding.etTemp.text.toString()
         val n = binding.etNitrogen.text.toString()
         val p = binding.etPhosporus.text.toString()
-        val turb = binding.etTurbidiy.text.toString()
+        val turb = binding.etTurbidity.text.toString()
 
         if (fc.isEmpty() || o2.isEmpty() || ph.isEmpty() || tss.isEmpty() || temp.isEmpty() || n.isEmpty() || p.isEmpty() || turb.isEmpty())
             Snackbar.make(binding.root, "Silahkan isi semua field!", Snackbar.LENGTH_SHORT).show()

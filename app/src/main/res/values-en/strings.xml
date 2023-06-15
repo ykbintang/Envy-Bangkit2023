@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="home">Home</string>
+    <string name="article">Article</string>
+    <string name="settings">Settings</string>
     <string name="mohon_tunggu_sebentar">Please Wait</string>
     <string name="mau_eksplorasi_apa_hari_ini">What are you going to explore today?</string>
     <string name="pilihan_layanan">Services</string>
@@ -15,7 +18,7 @@
     <string name="apa_sih_ide_dibalik_envy">Idea behind Envy</string>
     <string name="app_idea">A clean and healthy environment will improve the quality of life of the people living in it, broadly it is very important for humans to have a good quality environment for health in order to be able to live their daily life to the fullest.\n\nWater Quality Index (WQI) /Water Quality Index), Air Quality Index (AQI/Water Quality Index), and Soil Quality Index (SQI/Water Quality Index) are important measurement tools for determining environmental quality by reflecting the influence of various environmental quality parameters considered and used in calculating the water quality index, air quality index and soil quality index.\n\nWe had the idea to use the water quality index (WQI), Air Quality Index (AQI) and Soil Quality Index (SQI) datasets as inspiration to apply machine learning using a squential model with the help of the tensorflow library. The goal is to distinguish between the quality of a safe and proper environment for humans.</string>
     <string name="bagaimana_cara_deteksi">How to detect?</string>
-    <string name="how_detect_water">1. Enter the values of all available element categories according to the conditions of the place to be detected.\n2. Press the Detect button.\n3. Voila, the predicted results will appear.</string>
+    <string name="how_detect_water">1. Enter the values of all the required variables according to the conditions of the place to be detected.\n2. Press the Detect button.\n3. Voila, the predicted results will appear.</string>
     <string name="keterangan">Description</string>
     <string name="detect_water_how_desc">1. Fecal Coliform (FC) is a type of bacteria that is usually found in animal and human feces. Its presence in water indicates faecal contamination, which can be an indicator of contamination by pathogenic organisms.\n2. Oxygen (O2) is a gas that is essential to support life in water. The presence of sufficient oxygen in water is essential for the existence of aquatic organisms such as fish and other living things.\n3. Water PH (pH) is a measure of the level of acidity or alkalinity of water. The pH scale ranges from 0 to 14, where a value of 7 indicates neutral acidity, a number less than 7 indicates acidity, and a value greater than 7 indicates alkaline.\n4. Total Suspended Sediment (TSS) are solid particles contained in water and can be seen visually as turbidity or water turbidity. TSS often consists of sand, silt, soil and other organic matter, and can affect water quality and aquatic organisms.\n5. Temperature (Temp) is the temperature of the water. Water temperature can affect the survival and activity of aquatic organisms. Sharp temperature fluctuations or temperatures that do not correspond to natural conditions can negatively affect aquatic life.\n6. Nitrogen (N) is a chemical element that is important in the nutrient cycle. In water, nitrogen can exist in many forms, including ammonia, nitrate, and nitrite. The presence of nitrogen in the right amount is important for the growth and survival of aquatic organisms.\n7. Phosphorus (P) is a chemical element that is also important in the nutrient cycle. In water, phosphorus can exist in the form of phosphate. Phosphorus is an essential nutrient for the growth of plants and aquatic organisms. However, excess phosphorus in water can lead to ecological problems such as eutrophication and algal overgrowth.\n8. Turbidity (Turb) is a measure of the turbidity or turbidity of water due to the presence of suspended solids in it. Water turbidity can be affected by organic matter, sediment, sewage, or other pollutants. The level of water turbidity can affect water quality and affect aquatic life.</string>
     <string name="deteksi_disini">Detect Here</string>
@@ -27,4 +30,13 @@
     <string name="ph_tanah_ph">Soil pH</string>
     <string name="sistem_kami_memprediksi_bahwa_kualitas_tanah_di_tempat_kamu">Our system predicts that the quality of the soil in your area is %s</string>
     <string name="sistem_kami_memprediksi_bahwa_kualitas_udara_di_tempat_kamu">Our system predicts that the air quality in your place is %s</string>
+    <string name="oksigen_o2">Oxygen (O2)</string>
+    <string name="temperatur_temp">Temperatur (Temp)</string>
+    <string name="nitrogen_n">Nytrogen (N)</string>
+    <string name="karbon_monoksida_co">Carbon Monoxide (CO)</string>
+    <string name="nitrogen_dioksida_no2">Nytrogen Dioxide (NO2)</string>
+    <string name="potasium_k">Potassium (K)</string>
+    <string name="fosforus_p">Phosphorus (P)</string>
+    <string name="turbidity_turb">Turbidity (Turb)</string>
+    <string name="ph_water_ph">Water pH (pH)</string>
 </resources>

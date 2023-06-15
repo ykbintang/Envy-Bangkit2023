@@ -14,6 +14,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", '"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"')
+        buildConfigField("String", "BASE_URL", '"https://crossroads-mbd2rndo6a-et.a.run.app/"')
     }
 
     buildTypes {
