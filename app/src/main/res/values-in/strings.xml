@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name" translatable="false">Envy</string>
+    <string name="mohon_tunggu_sebentar">Mohon Tunggu Sebentar</string>
+    <string name="home">Rumah</string>
+    <string name="article">Artikel</string>
+    <string name="settings">Pengaturan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="mau_eksplorasi_apa_hari_ini">Mau eksplorasi apa hari ini?</string>
+    <string name="pilihan_layanan">Pilihan layanan</string>
+    <string name="lihat_semua">Lihat semua ></string>
+    <string name="deteksi_air">Deteksi Air</string>
+    <string name="deteksi_udara">Deteksi Udara</string>
+    <string name="deteksi_tanah">Deteksi Tanah</string>
+    <string name="tentang_envy">Tentang Envy</string>
+    <string name="app_desc">Envy (Environments Quality) adalah sebuah aplikasi yang memungkinkan pengguna untuk mendeteksi dan mengukur kualitas air, udara, dan tanah berdasarkan parameter yang telah ditentukan. Envy memberikan laporan hasil tentang kualitas lingkungan berdasarkan parameter yang telah ditentukan sehingga dapat memberikan informasi yang memungkinkan pengguna untuk mengetahui kualitas lingkungan agar mampu mengambil langkah tepat selanjutnya. Aplikasi ini membantu pengguna menjadi agen perubahan yang peduli terhadap lingkungan.</string>
+    <string name="dalam_pengembangan">Dalam pengembangan :)</string>
+    <string name="bahasa">Bahasa</string>
+    <string name="mode_malam">Mode Malam</string>
+    <string name="apa_sih_ide_dibalik_envy">Apa sih ide dibalik Envy?</string>
+    <string name="app_idea">Lingkungan yang bersih dan sehat akan meningkatkan kualitas hidup masyarakat yang ada didalamnya, secara luas sangat penting bagi manusia memiliki lingkungan dengan kualitas yang baik bagi kesehatan agar mampu menjalani kehidupan sehari harinya secara maksimal.\n\nIndeks Kualitas Air (WQI/Water Quality Index), Indeks Kualitas Udara (AQI/Water Quality Index), dan Indeks Kualitas Tanah (SQI/Water Quality Index) adalah sebuah alat ukur yang penting untuk menentukan kualitas lingkungan dengan mencerminkan pengaruh dari berbagai parameter kualitas lingkungan yang dipertimbangkan dan digunakan dalam perhitungan indeks kualitas air, indeks kualitas udara dan indeks kualitas tanah.\n\nKami memiliki ide untuk menggunakan dataset indeks kualitas air (WQI), Indeks Kualitas Udara (AQI), dan Indeks Kualitas Tanah (SQI) sebagai inspirasi untuk menerapkan machine learning menggunakan model squential dengan bantuan library tensorflow. Tujuannya adalah untuk membedakan antara kualitas lingkungan yang aman dan layak bagi manusia.</string>
+    <string name="bagaimana_cara_deteksi">Bagaimana cara deteksi?</string>
+    <string name="how_detect_water">1. Masukkan nilai dari semua variabel yang diperlukan sesuai kondisi tempat yang akan dideteksi.\n2. Tekan tombol Deteksi.\n3. Voila, hasil prediksi akan muncul.</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="detect_water_how_desc">1. Fecal Coliform (FC) adalah jenis bakteri yang biasanya ditemukan dalam tinja hewan dan manusia. Kehadirannya dalam air menunjukkan adanya kontaminasi tinja, yang dapat menjadi indikator adanya pencemaran organisme patogenik. \n2. Oksigen (O2) adalah gas yang penting untuk mendukung kehidupan di dalam air. Kehadiran oksigen yang cukup dalam air sangat penting bagi keberadaan organisme akuatik seperti ikan dan makhluk hidup lainnya. \n3. PH Air (pH) adalah ukuran tingkat keasaman atau kebasaan air. Skala pH berkisar dari 0 hingga 14, di mana nilai 7 menunjukkan keasaman netral, angka kurang dari 7 menunjukkan keasaman, dan angka lebih dari 7 menunjukkan kebasaan. \n4. Total Suspen Sedimen (TSS) adalah partikel-partikel padat yang terdapat dalam air dan secara visual dapat terlihat sebagai kekeruhan atau keruhnya air. TSS sering kali terdiri dari pasir, lumpur, tanah, dan bahan organik lainnya, dan dapat mempengaruhi kualitas air dan organisme akuatik. \n5. Temperatur (Temp) adalah suhu air. Suhu air dapat mempengaruhi kelangsungan hidup dan aktivitas organisme akuatik. Fluktuasi suhu yang tajam atau suhu yang tidak sesuai dengan kondisi alami dapat berdampak negatif terhadap kehidupan akuatik. \n6. Nitrogen (N) adalah unsur kimia yang penting dalam siklus nutrisi. Di dalam air, nitrogen dapat berada dalam berbagai bentuk, termasuk amonia, nitrat, dan nitrit. Kehadiran nitrogen dalam jumlah yang tepat penting untuk pertumbuhan dan kelangsungan hidup organisme akuatik. \n7. Fosforus (P) adalah unsur kimia yang juga penting dalam siklus nutrisi. Di dalam air, fosfor dapat berada dalam bentuk fosfat. Fosfor adalah nutrien esensial untuk pertumbuhan tanaman dan organisme akuatik. Namun, kelebihan fosfor dalam air dapat menyebabkan masalah ekologi seperti eutrofikasi dan pertumbuhan alga yang berlebihan. \n8. Kekeruhan (Turb) adalah ukuran kekeruhan atau keruhnya air akibat adanya partikel-padatan tersuspensi di dalamnya. Kekeruhan air dapat dipengaruhi oleh bahan organik, sedimen, limbah, atau polutan lainnya. Tingkat kekeruhan air dapat mempengaruhi kualitas air dan mempengaruhi kehidupan akuatik.</string>
+    <string name="deteksi_disini">Deteksi disini</string>
+    <string name="fecal_coliform" translatable="false">Fecal Coliform</string>
+    <string name="_1_100" translatable="false">0 - 100</string>
+    <string name="oksigen_o2">Oksigen (O2)</string>
+    <string name="total_suspended_sediment_tss" translatable="false">Total Suspended Sediment (TSS)</string>
+    <string name="temperatur_temp">Temperatur (Temp)</string>
+    <string name="nitrogen_n">Nitrogen (N)</string>
+    <string name="fosforus_p">Fosforus (P)</string>
+    <string name="turbidity_turb">Kekeruhan (Turb)</string>
+    <string name="deteksi">Deteksi</string>
+    <string name="hasil">Hasil</string>
+    <string name="sistem_kami_memprediksi_bahwa_kualitas_air_di_tempat_kamu">Sistem kami memprediksi bahwa kualitas air di tempat kamu %s</string>
+    <string name="sistem_kami_memprediksi_bahwa_kualitas_tanah_di_tempat_kamu">Sistem kami memprediksi bahwa kualitas tanah di tempat kamu %s</string>
+    <string name="sistem_kami_memprediksi_bahwa_kualitas_udara_di_tempat_kamu">Sistem kami memprediksi bahwa kualitas udara di tempat kamu %s</string>
+    <string name="detect_soil_desc">1. Nitrogen (N) adalah unsur kimia yang merupakan bagian penting dari protein dan molekul organik lainnya. Nitrogen diperlukan oleh tanaman dan makhluk hidup lainnya untuk pertumbuhan dan perkembangan. Dalam ekosistem air, nitrogen dapat berada dalam berbagai bentuk seperti amonia, nitrat, dan nitrit.\n2. Fosforus (P) adalah unsur kimia yang juga penting dalam pertumbuhan dan perkembangan organisme. Fosfor merupakan komponen utama dalam DNA, RNA, dan adenosin trifosfat (ATP). Fosfor juga merupakan nutrien yang penting dalam ekosistem air, tetapi kelebihan fosfor dapat menyebabkan masalah ekologi seperti eutrofikasi dan pertumbuhan alga yang berlebihan.\n3. Potasium (K) adalah unsur kimia yang diperlukan oleh tanaman dan organisme lainnya sebagai nutrien. Kalium berperan penting dalam regulasi tekanan osmotik dalam sel tanaman, perkembangan akar, dan fungsi enzim. Kalium juga merupakan salah satu unsur makro yang diperlukan dalam jumlah yang cukup oleh tanaman untuk pertumbuhan yang optimal.\n4. PH Tanah (pH) adalah ukuran tingkat keasaman atau kebasaan tanah. Skala pH tanah berkisar dari 0 hingga 14, dengan nilai 7 menunjukkan keasaman netral, angka kurang dari 7 menunjukkan keasaman, dan angka lebih dari 7 menunjukkan kebasaan. pH tanah mempengaruhi ketersediaan nutrien bagi tanaman serta aktivitas mikroorganisme dalam tanah.</string>
+    <string name="potasium_k">Potasium (K)</string>
+    <string name="detect_air_desc">1. Partikulat (PM2.5) adalah partikel-padatan berukuran kurang dari 2,5 mikrometer yang terdapat di udara. Partikulat ini dapat berasal dari berbagai sumber seperti pembakaran bahan bakar fosil, industri, kendaraan bermotor, aktivitas pembangunan, dan proses alami seperti debu dan serbuk sari.\n2. Karbon Monoksida (CO) adalah gas tak berwarna dan tidak berbau yang terbentuk dari pembakaran bahan bakar fosil yang tidak sempurna. CO dapat menjadi gas beracun yang dapat mengikat hemoglobin dalam darah manusia, menghambat pengangkutan oksigen, dan berpotensi menyebabkan keracunan atau kematian.\n3. Ozon (O3) adalah bentuk oksigen yang terdiri dari tiga atom oksigen. Ozon dapat terbentuk secara alami di atmosfer atas oleh interaksi sinar matahari dengan polutan seperti nitrogen dioksida (NO2). Ozon dapat melindungi lapisan ozon di atmosfer bumi, tetapi jika terdapat dalam konsentrasi yang tinggi di permukaan bumi, dapat menjadi polutan udara yang berbahaya bagi manusia dan organisme lainnya.\n4. Nitrogen Dioksida (NO2) adalah gas berwarna coklat yang terbentuk dari reaksi nitrogen oksida (NO) dengan oksigen di udara. NO2 adalah polutan udara yang dihasilkan oleh aktivitas manusia seperti pembakaran bahan bakar fosil. Pajanan jangka panjang terhadap NO2 dapat menyebabkan masalah kesehatan seperti iritasi saluran pernapasan, peningkatan risiko infeksi pernapasan, dan masalah pernapasan lainnya.</string>
+    <string name="partikulat_pm10" translatable="false">Partikulat (PM10)</string>
+    <string name="partikulat_pm2_5" translatable="false">Partikulat (PM2.5)</string>
+    <string name="sulfida_s2" translatable="false">Sulfida (s2-)</string>
+    <string name="ph_tanah_ph">pH Tanah (pH)</string>
+    <string name="karbon_monoksida_co">Karbon Monoksida (CO)</string>
+    <string name="ozon_o3" translatable="false">Ozon (O3)</string>
+    <string name="nitrogen_dioksida_no2">Nitrogen Dioksida (NO2)</string>
+    <string name="ph_water_ph">pH Air (pH)</string>
+</resources>
