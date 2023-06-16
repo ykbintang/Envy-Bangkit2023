@@ -13,16 +13,13 @@ our innovation to raise public awareness regarding environments quality !
      - [Background](#background)
      - [Project Goals](#project-goals)
      - [Building Model and Deploy Model](#building-model-and-deploy-model)
+        - [Dataset](#dataset)
         - [Build Model](#build-model)
-        - [Deploy Model](#deploy-model)
+        - [Project Installation](#project-installation)
      - [Features](#features)
      - [Screenshots](#screenshots)
 - [Workflow ENVy](#workflow-envy)
 - [Bussines Plan](#bussines-plan)
-- [Repository & Branch](#repository-&-branch)
-- [Bibliography](#bibliography)
-     - [Dataset](#dataset)
-     - [References](#references)
 - [Presentation Video](#presentation-video)
 - [Demo Video](#demo-video)
 - [Support By](#support-by)
@@ -54,11 +51,21 @@ policies. By providing reliable and comprehensive data on environmental
 quality, the application can contribute to evidence-based decision-making
 and help shape effective environmental regulations.
 
-## Building Model and Deploy Model](#building-model-and-deploy-model)
+## Building Model and Deploy Model
+
+### Dataset
+We use dataset from online resources, for specific link you can cek in this list :
+- For Soil Dataset you can klik [here.](https://www.kaggle.com/datasets/aksahaha/crop-recommendation)
+- For Water Dataset you can klik [here.](https://data.amerigeoss.org/dataset/wqi-parameter-scores-1994-2013-b0941)
+- For Air Dataset you can klik [here.](https://www.kaggle.com/datasets/hasibalmuzdadid/global-air-pollution-dataset)
 
 ### Build Model
+We build model with Tensorflow squential model after we do some prepocessing from the dataset and save model in to model.h5 , for detail code that we use you can click this :
+  - [Soil Predict Quality](https://colab.research.google.com/drive/1ePbPR4LnEpe2FCwHuwFDZhwKMnxiz2Fw?usp=drive_link)
+  - [Water Predict Quality](https://colab.research.google.com/drive/19MmQ6BhpWw09TwLgfmosaj2tB80bjAg1?usp=drive_link) 
+  - [Air Predict Quality](https://colab.research.google.com/drive/17gD6_P7ClBwBsklMLaXzZ-QMBHeKwxyG?usp=drive_link) 
 
-### Deploy Model
+### Project Installation 
 ### How to setup Google Cloud Platform using Cloud Run
 1. Open Google Cloud Console: Open the Google Cloud Console by visiting the following URL: https://console.cloud.google.com/
 
@@ -103,25 +110,25 @@ and help shape effective environmental regulations.
 12. Wait for Deployment: Wait for the deployment process to complete. Cloud Run will automatically set up the necessary resources and provide you with the service URL.
 
 ## Features
-  - [Soil Predict Quality](https://colab.research.google.com/drive/1ePbPR4LnEpe2FCwHuwFDZhwKMnxiz2Fw?usp=drive_link): Predict soil quality with Nitrogen,Phosphorus, Potassium, pH parameters (accuracy 94.03% and validation accuracy 91.14%)
-  - [Water Predict Quality](https://colab.research.google.com/drive/19MmQ6BhpWw09TwLgfmosaj2tB80bjAg1?usp=drive_link) : Predict water quality with FC, Oxygen, pH,Total Suspended Sediment, Temperature, Nitrogen,Phosphorus,Turbidity parameters (accuracy 87.77% and validation accuracy 81.48%)
-  - [Air Predict Quality](https://colab.research.google.com/drive/17gD6_P7ClBwBsklMLaXzZ-QMBHeKwxyG?usp=drive_link)   : Predict air quality with Nitrogen     Dioxide,Ozone, Carbon Monoxide, Particulate Matter parameters (accuracy 98% and validation accuracy 98%)
+  - Soil Predict Quality: Predict soil quality with Nitrogen,Phosphorus, Potassium, pH parameters (accuracy 94.03% and validation accuracy 91.14%)
+  - Water Predict Quality: Predict water quality with FC, Oxygen, pH,Total Suspended Sediment, Temperature, Nitrogen,Phosphorus,Turbidity parameters (accuracy 87.77% and validation accuracy 81.48%)
+  - Air Predict Quality: Predict air quality with Nitrogen     Dioxide,Ozone, Carbon Monoxide, Particulate Matter parameters (accuracy 98% and validation accuracy 98%)
 
 ## Screenshots
 ![1](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/2a448379-b9f7-4a18-8fc4-d8822ee80fb4)
 ![2](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/8f172509-36f1-467f-b993-9d31383c89a3)
 
 ## Workflow ENVy
+1. Get the chemical parameter value input from the user from the HTML form and then put it in an array for inference.
+
+2. Predict user input using a model that has been created using TensorFlow.
+
+3. Issue predictive labels on several categories of various environmental aspects
+
+4. The final prediction result is returned to the prediction page to be displayed to the user.
 
 ## Bussines Plan
-
-## Repository & Branch
-
-## Bibliography
-
-### Dataset
-
-### References
+This is our bussines plan for ENVy application, you can see the document in [here.](https://drive.google.com/file/d/1Qss7or5RHQc1q9VPp-fwTRJWWADnSgC1/view?usp=drive_link)
 
 ## Presentation Video
 To see the presentation from our team you can see in [here](https://youtu.be/U66PEWyMAVc) 
