@@ -37,12 +37,8 @@ and help shape effective environmental regulations.
   - [Air Predict Quality](https://colab.research.google.com/drive/17gD6_P7ClBwBsklMLaXzZ-QMBHeKwxyG?usp=drive_link)   : Predict air quality with Nitrogen     Dioxide,Ozone, Carbon Monoxide, Particulate Matter parameters (accuracy 98% and validation accuracy 98%)
 
 # Screenshots
-![1](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/77560d10-5038-4479-9f2c-49fc10f2f35d)
-![2](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/043fb822-d9ed-4a4e-a086-1a11ab1e9837)
-![3](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/6e8401c8-d825-4d81-ad38-e5b0ae165bb1)
-![4](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/73529d78-8bfc-41f2-b858-0fc0fd944984)
-![5](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/f84794aa-7e26-48f3-8dcf-2047f215f570)
-![6](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/052acb2d-1303-4bd0-b19d-243d28d6289a)
+![1](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/2a448379-b9f7-4a18-8fc4-d8822ee80fb4)
+![2](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/8f172509-36f1-467f-b993-9d31383c89a3)
 
 # Presentation Video
 To see the presentation from our team you can see in [here](https://youtu.be/U66PEWyMAVc) 
