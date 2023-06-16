@@ -37,30 +37,28 @@ and help shape effective environmental regulations.
   - [Air Predict Quality](https://colab.research.google.com/drive/17gD6_P7ClBwBsklMLaXzZ-QMBHeKwxyG?usp=drive_link)   : Predict air quality with Nitrogen     Dioxide,Ozone, Carbon Monoxide, Particulate Matter parameters (accuracy 98% and validation accuracy 98%)
 
 # Screenshots
-![0  Splash Screen-3](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/28163de1-4f0e-4902-a6cd-728129b144f3)
-![4  Settings](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/ce4252f6-57db-4b39-be68-f74f3e631811)
-![2  Home](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/32f081e6-6313-40e3-91a3-6c8a95a786b5)
-![Menu 1](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/2c90b0ae-068a-4dce-b1e4-572025649895)
-![Menu 2](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/4d1c04b2-11e4-4015-a0e7-3b181b05a97e)
-![Menu 3](https://github.com/ykbintang/Groco_Corn-plant-disease-detection-system/assets/126853793/177b6ef7-a566-4281-945c-4299bba537a1)
+![1](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/77560d10-5038-4479-9f2c-49fc10f2f35d)
+![2](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/043fb822-d9ed-4a4e-a086-1a11ab1e9837)
+![3](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/6e8401c8-d825-4d81-ad38-e5b0ae165bb1)
+![4](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/73529d78-8bfc-41f2-b858-0fc0fd944984)
+![5](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/f84794aa-7e26-48f3-8dcf-2047f215f570)
+![6](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/052acb2d-1303-4bd0-b19d-243d28d6289a)
 
 # Presentation Video
-To see the presentation from our team you can see in  [here](https://youtu.be/U66PEWyMAVc) 
+To see the presentation from our team you can see in [here](https://youtu.be/U66PEWyMAVc) 
 
 # Demo Video
 To see the video ENVy application demo, please see it [here](https://youtu.be/k7WVqg96EsE). And this is our [application demo](https://drive.google.com/file/d/1-cupzojoiS6rcPTpDWw2Za_UTSVmtFtn/view?usp=sharing)
 
 # Support By
 - Kampus Merdeka
-- Bangkit Academy 2022
+- Bangkit Academy 2023
 - Google
 - GoTo
 - Traveloka
 
 # API Reference
 We also provide API documentation for developers who are interested in integrating with our application. Visit our [API documentation](https://crossroads-mbd2rndo6a-et.a.run.app/docs).
-
-# 
 
 
 
