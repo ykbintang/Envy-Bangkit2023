@@ -13,7 +13,7 @@ our innovation to raise public awareness regarding environments quality !
      - [Background](#background)
      - [Project Goals](#project-goals)
      - [Building Model and Deploy Model](#building-model-and-deploy-model)
-        - [Buid Model](#buid-model)
+        - [Build Model](#build-model)
         - [Deploy Model](#deploy-model)
      - [Features](#features)
      - [Screenshots](#screenshots)
@@ -54,7 +54,11 @@ policies. By providing reliable and comprehensive data on environmental
 quality, the application can contribute to evidence-based decision-making
 and help shape effective environmental regulations.
 
-## Buid Models
+## Building Model and Deploy Model](#building-model-and-deploy-model)
+
+### Build Model
+
+### Deploy Model
 
 ## Features
   - [Soil Predict Quality](https://colab.research.google.com/drive/1ePbPR4LnEpe2FCwHuwFDZhwKMnxiz2Fw?usp=drive_link): Predict soil quality with Nitrogen,Phosphorus, Potassium, pH parameters (accuracy 94.03% and validation accuracy 91.14%)
@@ -64,6 +68,18 @@ and help shape effective environmental regulations.
 ## Screenshots
 ![1](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/2a448379-b9f7-4a18-8fc4-d8822ee80fb4)
 ![2](https://github.com/ykbintang/Envy-Bangkit2023/assets/126853793/8f172509-36f1-467f-b993-9d31383c89a3)
+
+## Workflow ENVy
+
+## Bussines Plan
+
+## Repository & Branch
+
+## Bibliography
+
+### Dataset
+
+### References
 
 ## Presentation Video
 To see the presentation from our team you can see in [here](https://youtu.be/U66PEWyMAVc) 
