@@ -61,7 +61,7 @@ We use dataset from online resources, for specific link you can cek in this list
 - For Air Dataset you can klik [here.](https://www.kaggle.com/datasets/hasibalmuzdadid/global-air-pollution-dataset)
 
 ### Build Model
-We build model with Tensorflow squential model after we do some prepocessing from the dataset and save model in to model.h5 , for detail code that we use you can click this :
+We build model with Tensorflow squential model after we do some prepocessing from the dataset and save model in to model.h5. After that, the model is deployed with FAST API and docker. for detail code that we use you can click this :
   - [Soil Predict Quality](https://colab.research.google.com/drive/1ePbPR4LnEpe2FCwHuwFDZhwKMnxiz2Fw?usp=drive_link)
   - [Water Predict Quality](https://colab.research.google.com/drive/19MmQ6BhpWw09TwLgfmosaj2tB80bjAg1?usp=drive_link) 
   - [Air Predict Quality](https://colab.research.google.com/drive/17gD6_P7ClBwBsklMLaXzZ-QMBHeKwxyG?usp=drive_link) 
