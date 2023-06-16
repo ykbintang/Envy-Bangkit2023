@@ -10,10 +10,19 @@ our innovation to raise public awareness regarding environments quality !
 - [Table of contents](#table-of-contents)
 - [Team Developer](#developer)
 - [About](#about)
-- [Background](#background)
-- [Project Goals](#project-goals)
-- [Features](#features)
-- [Screenshots](#screenshots)
+     - [Background](#background)
+     - [Project Goals](#project-goals)
+     - [Building Model and Deploy Model](#building-model-and-deploy-model)
+        - [Buid Model](#buid-model)
+        - [Deploy Model](#deploy-model)
+     - [Features](#features)
+     - [Screenshots](#screenshots)
+- [Workflow ENVy](#workflow-envy)
+- [Bussines Plan](#bussines-plan)
+- [Repository & Branch](#repository-&-branch)
+- [Bibliography](#bibliography)
+     - [Dataset](#dataset)
+     - [References](#references)
 - [Presentation Video](#presentation-video)
 - [Demo Video](#demo-video)
 - [Support By](#support-by)
@@ -44,6 +53,8 @@ protect their health and the environment.
 policies. By providing reliable and comprehensive data on environmental
 quality, the application can contribute to evidence-based decision-making
 and help shape effective environmental regulations.
+
+## Buid Models
 
 ## Features
   - [Soil Predict Quality](https://colab.research.google.com/drive/1ePbPR4LnEpe2FCwHuwFDZhwKMnxiz2Fw?usp=drive_link): Predict soil quality with Nitrogen,Phosphorus, Potassium, pH parameters (accuracy 94.03% and validation accuracy 91.14%)
